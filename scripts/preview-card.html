@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ground-1:#164a3d;
+    --ground-2:#0c2a23;
+    --ground-3:#071813;
+    --paper:#f7f2e7;
+    --ink-emerald:#13453a;
+    --gold:#b28a4c;
+    --gold-bright:#d8b877;
+    --gold-deep:#8a6a34;
+    --hair:rgba(178,138,76,.42);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{width:1200px;height:630px;overflow:hidden;}
+  body{
+    background:
+      radial-gradient(130% 90% at 50% -8%, var(--ground-1) 0%, var(--ground-2) 44%, var(--ground-3) 100%);
+    font-family:"Jost",sans-serif;
+    display:flex;align-items:center;justify-content:center;position:relative;
+  }
+  body::before{
+    content:"";position:absolute;inset:36px;border:1px solid var(--hair);
+  }
+  body::after{
+    content:"";position:absolute;inset:50px;border:1px solid rgba(216,184,119,.18);
+  }
+  .wrap{position:relative;text-align:center;padding:0 80px;}
+  .eyebrow{
+    font-size:16px;letter-spacing:.5em;text-transform:uppercase;color:var(--gold);
+    font-weight:400;margin-bottom:30px;
+  }
+  .rule{
+    width:70px;height:1px;margin:0 auto 34px;
+    background:linear-gradient(90deg,transparent,var(--gold-bright),transparent);
+  }
+  .name{
+    font-family:"Cormorant Garamond",serif;font-weight:400;
+    font-size:150px;line-height:1;color:var(--paper);letter-spacing:.01em;
+  }
+  .tagline{
+    font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:400;
+    font-size:34px;color:#e6ddc7;margin-top:34px;letter-spacing:.01em;
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <p class="eyebrow">Portfolio</p>
+    <div class="rule"></div>
+    <h1 class="name">Omid</h1>
+    <p class="tagline">Business research, projects, and ideas</p>
+  </div>
+</body>
+</html>
