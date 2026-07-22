@@ -1,0 +1,191 @@
+/* BMZ Portfolio — shared stylesheet
+   Built from the BMZ Design Bible (DESIGN SYSTEM / V1.0).
+   Applies to portfolio pages only — project/artifact pages keep their own styling. */
+
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400..900;1,400..900&family=Archivo:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root{
+  /* color palette — strictly monochrome + metallic */
+  --obsidian:#0A0A0B;   /* background */
+  --graphite:#141416;   /* surface */
+  --steel:#4A4C52;      /* border / hairline */
+  --alabaster:#F4F4F2;  /* text */
+  --fog:#B8BABF;        /* muted text */
+  --champagne:#C6A667;  /* accent — one per view */
+  --champagne-bright:#D8BE85;
+
+  /* 8px base grid */
+  --sp-1:4px;
+  --sp-2:8px;
+  --sp-3:16px;
+  --sp-4:24px;
+  --sp-5:32px;
+  --sp-6:48px;
+  --sp-7:64px;
+  --sp-8:96px;
+
+  --gutter:96px;
+  --max-width:1240px;
+}
+
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{
+  margin:0;
+  background:var(--obsidian);
+  color:var(--alabaster);
+  font-family:"Archivo",system-ui,sans-serif;
+  font-weight:300;
+  font-size:16px;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+
+img{max-width:100%;display:block;}
+
+a{color:inherit;}
+
+.wrap{
+  max-width:var(--max-width);
+  margin:0 auto;
+  padding:0 clamp(24px, 6vw, var(--gutter));
+}
+
+/* ---------- mono labels ---------- */
+.mono{
+  font-family:"JetBrains Mono",monospace;
+  font-size:12px;
+  letter-spacing:.24em;
+  text-transform:uppercase;
+  color:var(--fog);
+}
+.mono.accent{color:var(--champagne);}
+
+/* ---------- nav ---------- */
+.site-nav{
+  border-bottom:1px solid var(--steel);
+  position:sticky;top:0;
+  background:rgba(10,10,11,.92);
+  backdrop-filter:blur(6px);
+  z-index:10;
+}
+.site-nav .wrap{
+  display:flex;align-items:center;justify-content:space-between;
+  padding-top:var(--sp-4);padding-bottom:var(--sp-4);
+  flex-wrap:wrap;gap:var(--sp-3);
+}
+.brand{
+  font-family:"Bodoni Moda",serif;font-weight:600;font-size:20px;
+  letter-spacing:.02em;text-decoration:none;color:var(--alabaster);
+}
+.nav-links{
+  display:flex;gap:var(--sp-5);list-style:none;margin:0;padding:0;
+}
+.nav-links a{
+  font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.2em;
+  text-transform:uppercase;text-decoration:none;color:var(--fog);
+  padding-bottom:4px;border-bottom:1px solid transparent;
+  transition:color .2s ease, border-color .2s ease;
+}
+.nav-links a:hover,
+.nav-links a[aria-current="page"]{
+  color:var(--champagne);border-bottom-color:var(--champagne);
+}
+
+/* ---------- headings & type scale ---------- */
+h1,h2,h3{font-family:"Bodoni Moda",serif;font-weight:500;margin:0;color:var(--alabaster);}
+.display-xl{
+  font-size:clamp(44px, 9vw, 120px);letter-spacing:-.01em;line-height:.95;
+}
+.display-l{
+  font-size:clamp(34px, 6vw, 64px);letter-spacing:-.01em;line-height:.98;
+}
+h1.h1, .h1{
+  font-size:clamp(28px, 4vw, 44px);letter-spacing:-.01em;line-height:1.05;
+}
+h2.h2, .h2{
+  font-family:"Archivo",sans-serif;font-weight:600;
+  font-size:clamp(20px, 2.6vw, 32px);letter-spacing:0;line-height:1.2;
+}
+em{font-style:italic;color:var(--champagne);}
+
+.body-l{font-size:clamp(17px,2vw,19px);font-weight:300;line-height:1.7;color:var(--alabaster);}
+.body{font-size:15px;font-weight:300;line-height:1.7;color:var(--fog);}
+
+/* ---------- sections ---------- */
+section{padding:var(--sp-8) 0;}
+.hairline{border:0;border-top:1px solid var(--steel);margin:0;}
+section + section{border-top:1px solid var(--steel);}
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:var(--sp-2);
+  font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.2em;
+  text-transform:uppercase;text-decoration:none;
+  padding:16px 28px;border-radius:0;border:1px solid transparent;
+  transition:background .3s ease, color .2s ease, border-color .2s ease;
+  cursor:pointer;
+}
+.btn-primary{
+  background:var(--champagne);color:var(--obsidian);
+}
+.btn-primary:hover{background:var(--champagne-bright);}
+.btn-secondary{
+  background:transparent;color:var(--alabaster);border-color:var(--steel);
+}
+.btn-secondary:hover{border-color:var(--champagne);color:var(--champagne);}
+.btn-ghost{
+  border:0;padding:0;color:var(--fog);text-decoration:underline;
+  text-underline-offset:4px;
+}
+.btn-ghost:hover{color:var(--champagne);}
+.btn-row{display:flex;gap:var(--sp-4);flex-wrap:wrap;margin-top:var(--sp-6);}
+
+/* ---------- cards ---------- */
+.card{
+  background:var(--graphite);border:1px solid var(--steel);
+  padding:var(--sp-6);border-radius:0;
+}
+.card.feature{border-top:2px solid var(--champagne);}
+.card-eyebrow{display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--sp-4);}
+
+/* ---------- stat tiles ---------- */
+.stats{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  background:var(--steel);border:1px solid var(--steel);margin-top:var(--sp-7);
+}
+.stat{background:var(--obsidian);padding:var(--sp-5) var(--sp-4);}
+.stat .num{font-family:"Bodoni Moda",serif;font-size:clamp(28px,4vw,40px);color:var(--champagne);}
+.stat .label{margin-top:var(--sp-2);}
+
+/* ---------- footer ---------- */
+.site-footer{border-top:1px solid var(--steel);padding:var(--sp-6) 0;}
+.site-footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:var(--sp-3);}
+
+/* ---------- resume specific ---------- */
+.entry{margin-top:var(--sp-6);}
+.entry-head{
+  display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;
+  gap:var(--sp-2) var(--sp-4);border-top:1px solid var(--steel);padding-top:var(--sp-4);
+}
+.entry-title{font-weight:600;color:var(--alabaster);}
+.entry-sub{color:var(--fog);font-size:14px;margin-top:var(--sp-1);}
+ul.bullets{margin:var(--sp-3) 0 0;padding-left:18px;color:var(--fog);}
+ul.bullets li{margin-bottom:var(--sp-2);}
+.skill-row{display:grid;grid-template-columns:180px 1fr;gap:var(--sp-4);border-top:1px solid var(--steel);padding:var(--sp-4) 0;}
+.skill-row .k{color:var(--champagne);}
+.skill-row .v{color:var(--fog);}
+
+/* ---------- note / callout ---------- */
+.note{
+  border:1px solid var(--steel);border-left:2px solid var(--champagne);
+  padding:var(--sp-4) var(--sp-5);margin-top:var(--sp-5);
+  background:var(--graphite);
+}
+.note .body{color:var(--fog);margin:0;}
+
+@media (max-width:720px){
+  .stats{grid-template-columns:1fr;}
+  .skill-row{grid-template-columns:1fr;gap:var(--sp-1);}
+  .entry-head{flex-direction:column;align-items:flex-start;}
+}
